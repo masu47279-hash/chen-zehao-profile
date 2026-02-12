@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chen Zehao | 陈泽豪 | Чэн Цзэхао - Diplomatic Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a5f;
+            --deep-blue: #0f2744;
+            --gold: #c9a227;
+            --light-gold: #e8d5a3;
+            --white: #ffffff;
+            --off-white: #fafbfc;
+            --light-gray: #f0f2f5;
+            --text-dark: #1a1a1a;
+            --text-gray: #4a4a4a;
+            --text-light: #7a7a7a;
+            --china-red: #de2910;
+            --russia-blue: #0033a0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans', 'Noto Serif SC', sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* 自然光效背景 */
+        .ambient-light {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(201, 162, 39, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(30, 58, 95, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+            animation: ambientShift 20s ease-in-out infinite;
+        }
+
+        @keyframes ambientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.9; }
+        }
+
+        /* 浮动光点 */
+        .light-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .light-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(201, 162, 39, 0.4);
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: floatParticle 25s infinite linear;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% {
+                transform: translateY(-100vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(30, 58, 95, 0.1);
+            z-index: 1000;
+            padding: 0 5%;
+            transition: all 0.4s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 4px 30px rgba(30, 58, 95, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            letter-spacing: 2px;
+        }
+
+        .logo-sub {
+            font-size: 11px;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* 语言切换 */
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .lang-btn {
+            padding: 6px 12px;
+            border: 1px solid var(--primary-blue);
+            background: transparent;
+            color: var(--primary-blue);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 5% 80px;
+            position: relative;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-image {
+            width: 400px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 
+                0 25px 80px rgba(30, 58, 95, 0.15),
+                0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .hero-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 35px 100px rgba(30, 58, 95, 0.2),
+                0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-image-frame {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            padding-left: 20px;
+        }
+
+        .hero-name-main {
+            font-size: 64px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            letter-spacing: 8px;
+            line-height: 1.2;
+        }
+
+        .hero-name-sub {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--text-gray);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .hero-name-russian {
+            font-size: 24px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-divider {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            margin: 30px 0;
+        }
+
+        .hero-title {
+            margin-bottom: 25px;
+        }
+
+        .title-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--text-dark);
+        }
+
+        .title-flag {
+            font-size: 20px;
+        }
+
+        .title-text {
+            font-weight: 500;
+        }
+
+        .title-en {
+            font-size: 13px;
+            color: var(--text-light);
+            font-style: italic;
+            margin-left: 32px;
+            margin-bottom: 8px;
+        }
+
+        /* Section通用样式 */
+        .section {
+            padding: 100px 5%;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-label {
+            font-size: 12px;
+            color: var(--gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: 42px;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            background: var(--off-white);
+        }
+
+        .profile-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 60px rgba(30, 58, 95, 0.08);
+            border-left: 4px solid var(--gold);
+        }
+
+        .profile-intro {
+            margin-bottom: 40px;
+        }
+
+        .profile-text {
+            font-size: 18px;
+            line-height: 2;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 2px solid var(--light-gold);
+        }
+
+        .profile-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .lang-label {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin-right: 10px;
+            font-weight: 600;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            background: white;
+        }
+
+        .timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--gold) 0%, var(--primary-blue) 50%, var(--gold) 100%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+            transform: translateX(30px);
+        }
+
+        .timeline-item:nth-child(even).visible {
+            transform: translateX(0);
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.06);
+            max-width: 420px;
+            position: relative;
+            border: 1px solid rgba(30, 58, 95, 0.1);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--gold);
+            border-radius: 50%;
+            top: 40px;
+            right: -58px;
+            box-shadow: 0 0 0 6px rgba(201, 162, 39, 0.2);
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: auto;
+            left: -58px;
+        }
+
+        .timeline-year {
+            font-size: 14px;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .timeline-desc {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .timeline-desc-en {
+            font-size: 13px;
+            color: var(--text-light);
+            font-style: italic;
+            line-height: 1.6;
+            border-left: 2px solid var(--light-gold);
+            padding-left: 12px;
+            margin-top: 8px;
+        }
+
+        /* Positions Section */
+        .positions-section {
+            background: var(--off-white);
+        }
+
+        .positions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .position-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(30, 58, 95, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .position-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gold);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .position-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(30, 58, 95, 0.1);
+        }
+
+        .position-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .position-org {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+        }
+
+        .position-org-en {
+            font-size: 12px;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .position-title {
+            font-size: 18px;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 8px;
+            padding: 10px 0;
+            border-top: 1px solid rgba(30, 58, 95, 0.1);
+        }
+
+        .position-title-en {
+            font-size: 13px;
+            color: var(--text-gray);
+            font-style: italic;
+        }
+
+        /* Honors Section */
+        .honors-section {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+
+        .honor-main {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            text-align: center;
+            padding: 60px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 80px rgba(30, 58, 95, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .honor-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--primary-blue), var(--gold));
+        }
+
+        .honor-badge {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold), #e8d5a3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 36px;
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
+        }
+
+        .honor-title {
+            font-size: 28px;
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .honor-title-en {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: var(--gold);
+            margin-bottom: 25px;
+        }
+
+        .honor-desc {
+            font-size: 15px;
+            line-height: 2;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .honor-quote {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 14px;
+            border-left: 3px solid var(--gold);
+            padding-left: 20px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: white;
+            padding: 80px 5%;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(30, 58, 95, 0.9));
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-blue);
+            padding: 80px 5% 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .footer-tagline {
+            font-size: 16px;
+            letter-spacing: 3px;
+            color: var(--light-gold);
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            opacity: 0.6;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal img {
+            max-width: 85%;
+            max-height: 85%;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-image {
+                width: 300px;
+                height: 380px;
+                margin: 0 auto;
+            }
+
+            .hero-name-main {
+                font-size: 48px;
+            }
+
+            .positions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                padding-left: 60px;
+                padding-right: 20px;
+                justify-content: flex-start;
+            }
+
+            .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 12px;
+                right: auto;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- 自然光效背景 -->
+    <div class="ambient-light"></div>
+    <div class="light-particles" id="particles"></div>
+
+    <!-- 图片模态框 -->
+    <div class="modal" id="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img id="modal-img" src="" alt="Photo">
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">陈泽豪</span>
+                <span class="logo-sub">Chen Zehao | Чэн Цзэхао</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#profile">简介 Profile</a></li>
+                <li><a href="#achievements">成就 Achievements</a></li>
+                <li><a href="#positions">职务 Positions</a></li>
+                <li><a href="#honors">荣誉 Honors</a></li>
+                <li><a href="#gallery">相册 Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-image-wrapper">
+                <img src="陈泽豪_照片1.jpeg" alt="Chen Zehao" class="hero-image">
+                <div class="hero-image-frame"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-name-main">陈泽豪</h1>
+                <div class="hero-name-sub">Chen Zehao</div>
+                <div class="hero-name-russian">Чэн Цзэхао</div>
+                <div class="hero-divider"></div>
+                
+                <div class="hero-title">
+                    <div class="title-item">
+                        <span class="title-flag">🇨🇳</span>
+                        <span class="title-text">中哈商贸一体化总部联络处 主任</span>
+                    </div>
+                    <div class="title-en">Director, China-Kazakhstan Trade Integration Headquarters Liaison Office</div>
+                    
+                    <div class="title-item">
+                        <span class="title-flag">🇰🇿</span>
+                        <span class="title-text">哈萨克斯坦能源矿产公司 唯一中国区战略合作伙伴</span>
+                    </div>
+                    <div class="title-en">Exclusive China Strategic Partner, Kazakhstan Energy and Mining Corporation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section class="section profile-section" id="profile">
+        <div class="section-header">
+            <div class="section-label">Profile / Профиль</div>
+            <h2 class="section-title">个人简介</h2>
+            <div class="section-subtitle">Distinguished Folk Diplomat & Economic Cooperation Promoter</div>
+        </div>
+        
+        <div class="profile-content">
+            <div class="profile-card">
+                <div class="profile-intro">
+                    <p class="profile-text">
+                        <span class="lang-label">CN</span>
+                        陈泽豪先生是「一带一路」倡议下的杰出民间外交家与经贸合作推动者，在中俄、中意、中哈等多边合作中发挥着桥梁纽带作用，被誉为「现代版张骞」、「空中丝绸之路的领航者」。
+                    </p>
+                    <p class="profile-text">
+                        <span class="lang-label">EN</span>
+                        Mr. Chen Zehao is a distinguished folk diplomat and economic cooperation promoter under the Belt and Road Initiative. He plays a vital bridging role in multilateral cooperation between China-Russia, China-Italy, and China-Kazakhstan, honored as the "Modern Zhang Qian" and "Navigator of the Air Silk Road."
+                    </p>
+                    <p class="profile-text">
+                        <span class="lang-label">RU</span>
+                        Господин Чэн Цзэхао - выдающийся народный дипломат и промоутер экономического сотрудничества в рамках инициативы «Один пояс, один путь». Он играет жизненно важную роль моста в многостороннем сотрудничестве между Китаем и Россией, Китаем и Италией, Китаем и Казахстаном, удостоен звания «Современный Чжан Цянь» и «Навигатор Воздушного Шелкового Пути».
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section timeline-section" id="achievements">
+        <div class="section-header">
+            <div class="section-label">Achievements / Достижения</div>
+            <h2 class="section-title">主要成就</h2>
+            <div class="section-subtitle">Key Milestones in International Cooperation</div>
+        </div>
+        
+        <div class="timeline">
+            <!-- 中俄合作 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-title">
+                        🇨🇳🇷🇺 中俄「一带一路」合作<br>
+                        China-Russia Belt and Road Cooperation
+                    </div>
+                    <div class="timeline-desc">
+                        <strong>中文：</strong>参与推进中国海南三亚、海口至俄罗斯莫斯科、圣彼得堡州际航班复航计划，成功搭建两国文旅与经贸空中桥梁，被誉为「空中丝绸之路的领航者」。推动俄罗斯退役飞行员中国就业培训计划落地，与俄罗斯泽尼特足球俱乐部、俄罗斯石油天然气公司建立深厚合作友谊。
+                    </div>
+                    <div class="timeline-desc-en">
+                        <strong>English:</strong> Participated in promoting the resumption of inter-state flights from Sanya and Haikou, Hainan, China to Moscow and St. Petersburg, Russia. Successfully established an air bridge for cultural tourism and economic trade between the two countries, honored as the "Navigator of the Air Silk Road." Facilitated the employment training program for retired Russian pilots in China, and established profound cooperative friendships with Zenit Football Club and Gazprom.
+                    </div>
+                    <div class="timeline-desc-en" style="margin-top: 10px; border-color: var(--russia-blue);">
+                        <strong>Русский:</strong> Участвовал в продвижении возобновления межштатских рейсов из Саньи и Хайкоу (провинция Хайнань, Китай) в Москву и Санкт-Петербург (Россия). Успешно создал воздушный мост для культурного туризма и экономической торговли между двумя странами, удостоен звания «Навигатор Воздушного Шелкового Пути». Содействовал программе подготовки к трудоустройству в Китае для уволенных в запас российских пилотов, установил глубокие дружеские отношения с футбольным клубом «Зенит» и Газпромом.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中意合作 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2023-2025</div>
+                    <div class="timeline-title">
+                        🇨🇳🇮🇹 中意民间经贸与友好建设<br>
+                        China-Italy Economic & Cultural Exchange
+                    </div>
+                    <div class="timeline-desc">
+                        <strong>中文：</strong>以意大利华人领袖、意中企业发展促进会总部副秘书长及中国区常务副理事长身份，重点维护中意民间经贸关系。在稳固双方民间外交与常态化商贸合作基础上，主动对接资源，全力推动两国友好城市结对与深度协作，持续夯实中意双边合作的民间根基。
+                    </div>
+                    <div class="timeline-desc-en">
+                        <strong>English:</strong> As a leader of the Chinese community in Italy, Deputy Secretary-General of the Italy-China Business Development Association Headquarters, and Executive Vice Chairman of the China Region, focused on maintaining China-Italy folk economic and trade relations. Actively connected resources to promote sister-city partnerships and deep collaboration between the two countries, continuously strengthening the grassroots foundation of bilateral cooperation.
+                    </div>
+                    <div class="timeline-desc-en" style="margin-top: 10px;">
+                        <strong>Italiano:</strong> In qualità di leader della comunità cinese in Italia, Vice Segretario Generale della sede centrale dell'Associazione per lo Sviluppo delle Imprese Italia-Cina e Vice Presidente Esecutivo della Regione Cina, si è concentrato sul mantenimento delle relazioni economiche e commerciali popolari tra Cina e Italia. Ha attivamente collegato risorse per promuovere partnership tra città gemellate e collaborazione approfondita tra i due paesi.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中国旅游年 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">March 2024</div>
+                    <div class="timeline-title">
+                        🇨🇳🇰🇿 助力哈萨克斯坦「中国旅游年」<br>
+                        Kazakhstan "China Tourism Year"
+                    </div>
+                    <div class="timeline-desc">
+                        <strong>中文：</strong>助力哈萨克斯坦「中国旅游年」开幕式顺利举办，开启中哈文化交流新篇章，推动两国人民友好往来。
+                    </div>
+                    <div class="timeline-desc-en">
+                        <strong>English:</strong> Assisted in the successful opening ceremony of Kazakhstan's "China Tourism Year," opening a new chapter in China-Kazakhstan cultural exchange and promoting friendly exchanges between the peoples of both countries.
+                    </div>
+                    <div class="timeline-desc-en" style="margin-top: 10px;">
+                        <strong>Қазақша:</strong> Қазақстанның «Қытай туризм жылы» ашылуының сәтті өтуіне көмектесті, Қытай-Қазақстан мәдени алмасуының жаңа бетін ашты және еліміздің халықтарының достық байланыстарын нығайтты.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 水灾援助 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">April-June 2024</div>
+                    <div class="timeline-title">
+                        🇨🇳🇰🇿 中哈战略合作深化<br>
+                        Deepening China-Kazakhstan Strategic Cooperation
+                    </div>
+                    <div class="timeline-desc">
+                        <strong>中文：</strong>在哈萨克斯坦总统托卡耶夫在华期间的老师——北京语言大学刘士勤教授邀请下，共同发起哈萨克斯坦水灾国际援助及友好城市倡议，获哈萨克斯坦能源矿产公司、哈萨克斯坦驻华大使馆及多部门积极响应。与哈萨克斯坦旅游局主席海拉提进行北京会晤，哈方邀请并首次提出希望打造中国城唐人街计划。6月与能源矿产公司达成战略合作并签署中哈商贸一体化总部联络处相关合作协议。会见阿拉木图州州长代表团，受到全体起立行礼尊重。
+                    </div>
+                    <div class="timeline-desc-en">
+                        <strong>English:</strong> At the invitation of Professor Liu Shiqin from Beijing Language and Culture University, the teacher of President Tokayev during his time in China, jointly initiated international aid for Kazakhstan's flood disaster and sister-city initiatives. Met with Chairman Hairati of Kazakhstan Tourism Bureau in Beijing, where the Kazakh side invited and first proposed the plan to build a Chinatown. In June, reached strategic cooperation with the Energy and Mining Corporation and signed agreements. Met with the Almaty Region Governor's delegation and received a standing ovation.
+                    </div>
+                    <div class="timeline-desc-en" style="margin-top: 10px;">
+                        <strong>Қазақша:</strong> Пекин тіл және мәдениет университетінің профессоры Лю Шициннің шақыруы бойынша Қазақстандағы су тасқынына халықаралық көмек және бауырлас қалалар бастамаларын бірлесіп қолға алды. Қазақстан туризм бюросының төрағасы Хайратимен Пекинде кездесті. Маусым айында Энергетика және жер қазу корпорациясымен стратегиялық ынтымақтастыққа қол жеткізді. Алматы облысы губернаторының делегациясымен кездесті және орынан тұрып құрмет көрсетті.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 国日宴 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">November 2024</div>
+                    <div class="timeline-title">
+                        🇨🇳🇰🇿 受邀出席哈萨克斯坦国日宴<br>
+                        National Day Banquet Invitation
+                    </div>
+                    <div class="timeline-desc">
+                        <strong>中文：</strong>受邀出席哈萨克斯坦驻华大使沙赫拉特·努雷舍夫阁下及夫人举办的国日宴活动，彰显中哈深厚友谊与高度认可。
+                    </div>
+                    <div class="timeline-desc-en">
+                        <strong>English:</strong> Invited to attend the National Day banquet hosted by His Excellency Shakhrat Nuryshev, Ambassador of Kazakhstan to China, and his wife, demonstrating the profound friendship and high recognition between China and Kazakhstan.
+                    </div>
+                    <div class="timeline-desc-en" style="margin-top: 10px;">
+                        <strong>Қазақша:</strong> Қазақстанның Қытайдағы елшісі Шахрат Нұрышев пен оның зайыбының ұйымдастырған Тәуелсіздік күні құрметіне берілген салтанатты қабылдауына шақырылды.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 鼎礼荣誉 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">June 2025</div>
+                    <div class="timeline-title">
+                        🏆 荣获哈萨克斯坦最高国礼「鼎礼」<br>
+                        Highest State Honor of Kazakhstan
+                    </div>
+                    <div class="timeline-desc">
+                        <strong>中文：</strong>与图尔克斯坦州开展多轮高层会晤，因在两国文化交流与经贸合作中的卓越贡献，被授予该国最高国礼「鼎礼」，确立为中哈文化与长期经贸合作中方最重要联络人。
+                    </div>
+                    <div class="timeline-desc-en">
+                        <strong>English:</strong> Conducted multiple high-level meetings with Turkestan Region. Awarded the highest state gift "Ding Li" for outstanding contributions to cultural exchange and economic cooperation between the two countries, establishing him as the most important Chinese liaison for China-Kazakhstan cultural and long-term economic cooperation.
+                    </div>
+                    <div class="timeline-desc-en" style="margin-top: 10px;">
+                        <strong>Қазақша:</strong> Түркістан облысымен бірнеше жоғары деңгейлі кездесулер өткізді. Екі елдің мәдени алмасуы мен экономикалық ынтымақтастығына қосқан елеулі үлесі үшін мемлекеттің ең жоғары сыйлығы «Дин Ли» марапатына ие болды.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Positions Section -->
+    <section class="section positions-section" id="positions">
+        <div class="section-header">
+            <div class="section-label">Current Positions / Текущие Должности</div>
+            <h2 class="section-title">现任职务</h2>
+            <div class="section-subtitle">Leadership Roles in International Cooperation</div>
+        </div>
+        
+        <div class="positions-grid">
+            <div class="position-card">
+                <div class="position-org">🇨🇳🇰🇿 中哈商贸一体化总部联络处</div>
+                <div class="position-org-en">China-Kazakhstan Trade Integration HQ Liaison Office</div>
+                <div class="position-title">主任 | Director | Директор</div>
+                <div class="position-title-en">The highest-ranking representative for China-Kazakhstan economic cooperation</div>
+            </div>
+
+            <div class="position-card">
+                <div class="position-org">🇰🇿 哈萨克斯坦能源矿产公司</div>
+                <div class="position-org-en">Kazakhstan Energy and Mining Corporation</div>
+                <div class="position-title">唯一中国区战略合作伙伴 | Exclusive China Strategic Partner | Эксклюзивный стратегический партнер в Китае</div>
+                <div class="position-title-en">Sole authorized representative for all China-related strategic cooperation</div>
+            </div>
+
+            <div class="position-card">
+                <div class="position-org">🇨🇳🇮🇹 意中企业发展促进会</div>
+                <div class="position-org-en">Italy-China Business Development Association</div>
+                <div class="position-title">总部副秘书长 / 中国区常务副理事长<br>Deputy Secretary-General / Executive Vice Chairman | Заместитель Генерального секретаря / Исполнительный Вице-председатель</div>
+                <div class="position-title-en">Leading role in promoting Italy-China economic and cultural exchanges</div>
+            </div>
+
+            <div class="position-card">
+                <div class="position-org">✈️ 斯卡特航空 / 阿斯塔纳航空</div>
+                <div class="position-org-en">SCAT Airlines / Air Astana</div>
+                <div class="position-title">中国区总代理 / 合作伙伴 | China General Agent / Partner | Генеральный агент в Китае / Партнер</div>
+                <div class="position-title-en">Key coordinator for aviation cooperation between China and Kazakhstan</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Honors Section -->
+    <section class="section honors-section" id="honors">
+        <div class="section-header">
+            <div class="section-label">Honors / Награды</div>
+            <h2 class="section-title">荣誉认定</h2>
+            <div class="section-subtitle">Recognition for Outstanding Contributions</div>
+        </div>
+        
+        <div class="honor-main">
+            <div class="honor-badge">🏆</div>
+            <h3 class="honor-title">哈萨克斯坦最高国礼「鼎礼」</h3>
+            <div class="honor-title-en">The Highest State Gift of Kazakhstan - "Ding Li" ( ding ceremony vessel )</div>
+            <div class="honor-title-en" style="font-size: 16px; margin-top: 10px;">Высший государственный подарок Казахстана - «Дин Ли»</div>
+            
+            <p class="honor-desc">
+                <strong>中文：</strong>2025年6月，因在两国文化交流与经贸合作中的卓越贡献，被哈萨克斯坦政府授予该国最高国礼「鼎礼」。此荣誉确立了陈泽豪先生作为中哈文化与长期经贸合作中方最重要联络人的地位。
+            </p>
+            <p class="honor-desc">
+                <strong>English:</strong> In June 2025, awarded the highest state gift "Ding Li" by the Kazakhstan government for outstanding contributions to cultural exchange and economic cooperation. This honor establishes Mr. Chen Zehao as the most important Chinese liaison for China-Kazakhstan cultural and long-term economic cooperation.
+            </p>
+            <p class="honor-desc">
+                <strong>Қазақша:</strong> 2025 жылдың маусымында екі елдің мәдени алмасуы мен экономикалық ынтымақтастығына қосқан елеулі үлесі үшін Қазақстан үкіметімен мемлекеттің ең жоғары сыйлығы «Дин Ли» марапатына ие болды.
+            </p>
+            
+            <div class="honor-quote">
+                "现代版张骞 · 空中丝绸之路的领航者"<br>
+                "Modern Zhang Qian · Navigator of the Air Silk Road"<br>
+                «Современный Чжан Цянь · Навигатор Воздушного Шелкового Пути»
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="section-header">
+            <div class="section-label">Gallery / Галерея</div>
+            <h2 class="section-title">相册</h2>
+            <div class="section-subtitle">Moments in Diplomatic Service</div>
+        </div>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openModal('陈泽豪_照片1.jpeg')">
+                <img src="陈泽豪_照片1.jpeg" alt="Chen Zehao">
+                <div class="gallery-overlay">查看大图 View Photo</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('陈泽豪_照片2.jpeg')">
+                <img src="陈泽豪_照片2.jpeg" alt="Chen Zehao">
+                <div class="gallery-overlay">查看大图 View Photo</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('陈泽豪_照片3.jpeg')">
+                <img src="陈泽豪_照片3.jpeg" alt="Chen Zehao">
+                <div class="gallery-overlay">查看大图 View Photo</div>
+            </div>
+            <div class="gallery-item" onclick="openModal('陈泽豪_照片4.jpeg')">
+                <img src="陈泽豪_照片4.jpeg" alt="Chen Zehao">
+                <div class="gallery-overlay">查看大图 View Photo</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-title">谢 谢 | Thank You | Спасибо</div>
+            <div class="footer-subtitle">感谢您的关注 | Thank you for your attention | Благодарим за внимание</div>
+            <div class="footer-tagline">一带一路 · 民心相通</div>
+            <div class="footer-subtitle" style="font-size: 14px; margin-top: 10px;">
+                Belt and Road Initiative · Connecting Hearts<br>
+                Инициатива «Один пояс, один путь» · Связующие сердца
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 Chen Zehao | 陈泽豪 | Чэн Цзэхао. All Rights Reserved.<br>
+            Diplomatic Profile | Official Website
+        </div>
+    </footer>
+
+    <script>
+        // 生成浮动光点
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'light-particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 25 + 's';
+            particle.style.animationDuration = (Math.random() * 15 + 15) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 滚动显示动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item, .position-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 图片模态框
+        function openModal(src) {
+            const modal = document.getElementById('modal');
+            const modalImg = document.getElementById('modal-img');
+            modalImg.src = src;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.remove('active');
+        }
+
+        // ESC键关闭
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
